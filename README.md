@@ -4,6 +4,7 @@
 
 - Script dùng với tampermonkey tự động lưu vị trí đã đọc theo từng chapter
 - Thay đổi chút giao diện chiều ngang, font. Giảm việc phải scroll xuống.
+- Tự ẩn con trỏ chuột nếu ko di chuyển sau 2s.
 - Hỗ trợ web wordpress cũ và web mới (<https://tsukiteam.wordpress.com>, <https://miotranslator.com>)
 - Lưu chương truyện đã đọc gần nhất (nút dưới cùng bên phải)
 
