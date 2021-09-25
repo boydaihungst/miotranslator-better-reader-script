@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -47,6 +47,8 @@
   const waitActionBarShownInterval = setInterval(() => {
     const actionBar = document.querySelector('#actionbar>ul');
     if (actionBar) {
+      // hide marking bar
+      document.querySelector('#marketingbar').style.display = 'none';
       clearInterval(waitActionBarShownInterval);
       if (localStorage.getItem(LAST_KNOWN_READ_PAGE_KEY)) {
         const resumePageLi = document.createElement('li');
