@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -43,27 +43,31 @@
   let mouseTimer = null,
     cursorVisible = true;
   const isReadPage = /(^\/\d+\/\d+\/\d+\/\w+).+/g.test(location.pathname);
-  const actionBar = document.querySelector('#actionbar > ul');
   const LAST_KNOWN_READ_PAGE_KEY = 'lastKnownReadPage_' + location.host;
-  if (actionBar) {
-    const resumePageLi = document.createElement('li');
-    const resumeLastPageLink = document.createElement('a');
-    const resumeLastPageLinkSpan = document.createElement('span');
-    resumePageLi.classList.add('actnbr-btn');
-    resumePageLi.classList.add('actnbr-hidden');
-    resumeLastPageLinkSpan.innerHTML = 'Tiếp tục chương mới đọc';
-    resumeLastPageLink.appendChild(resumeLastPageLinkSpan);
-    resumeLastPageLink.href = localStorage.getItem(LAST_KNOWN_READ_PAGE_KEY);
-    resumeLastPageLink.classList.add('actnbr-action');
-    resumeLastPageLink.style.padding = '0';
-    resumePageLi.appendChild(resumeLastPageLink);
-    actionBar.insertBefore(resumePageLi, actionBar.firstChild);
-  }
+  const waitActionBarShownInterval = setInterval(() => {
+    const actionBar = document.querySelector('#actionbar>ul');
+    if (actionBar) {
+      clearInterval(waitActionBarShownInterval);
+      if (localStorage.getItem(LAST_KNOWN_READ_PAGE_KEY)) {
+        const resumePageLi = document.createElement('li');
+        const resumeLastPageLink = document.createElement('a');
+        const resumeLastPageLinkSpan = document.createElement('span');
+        resumePageLi.classList.add('actnbr-btn');
+        resumePageLi.classList.add('actnbr-hidden');
+        resumeLastPageLinkSpan.innerHTML = 'Tiếp tục chương mới đọc';
+        resumeLastPageLink.appendChild(resumeLastPageLinkSpan);
+        resumeLastPageLink.href = localStorage.getItem(
+          LAST_KNOWN_READ_PAGE_KEY,
+        );
+        resumeLastPageLink.classList.add('actnbr-action');
+        resumeLastPageLink.style.padding = '0';
+        resumePageLi.appendChild(resumeLastPageLink);
+        actionBar.insertBefore(resumePageLi, actionBar.firstChild);
+      }
+    }
+  }, 100);
   if (isReadPage) {
     localStorage.setItem(LAST_KNOWN_READ_PAGE_KEY, location.href);
-    function saveLastKnownReadPage() {
-      localStorage.setItem(LAST_KNOWN_SCROLL_POSITION_KEY_BY_PATH, scrollPos);
-    }
     // Auto hide mouse if not move after 2s
     function disappearCursor() {
       mouseTimer = null;
