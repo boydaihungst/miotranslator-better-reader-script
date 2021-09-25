@@ -6,6 +6,14 @@
 - Thay đổi chút giao diện chiều ngang, font. Giảm việc phải scroll xuống.
 - Hỗ trợ web wordpress cũ và web mới (<https://tsukiteam.wordpress.com>, <https://miotranslator.com>)
 
+Trước khi fix: 
+
+![Screenshot_20210925_092830](https://user-images.githubusercontent.com/38396158/134754894-0c683b8c-8fb3-4b55-a636-3d6f5b17c696.png)
+
+Sau khi fix:
+![Screenshot_20210925_092802](https://user-images.githubusercontent.com/38396158/134754897-15d4c4a7-88c9-4427-b6fb-cb4a3a060113.png)
+
+
 ## Hướng dẫn cài đặt
 
 Bước 1:
