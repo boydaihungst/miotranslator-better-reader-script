@@ -19,5 +19,6 @@ Bước 2:
 Ấn vào link dưới để cài đặt script:
 <https://github.com/boydaihungst/miotranslator-better-reader-script/raw/main/miotranslator.user.js>
 
-Bấm install là xong nhé.
+Bấm install nữa là xong nhé.
+
 ![image](https://user-images.githubusercontent.com/38396158/134754773-7d0891dc-f3d3-4084-9015-1496ec13863d.png)
