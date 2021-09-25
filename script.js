@@ -2,11 +2,13 @@
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  miotranslator website better reader mode
 // @author       You
 // @include      https://miotranslator.com/*
 // @include      https://tsukiteam.wordpress.com/*
 // @icon         https://www.google.com/s2/favicons?domain=wordpress.com
+// @downloadURL  https://raw.githubusercontent.com/boydaihungst/miotranslator-better-reader-script/main/script.js
+// @updateURL    https://raw.githubusercontent.com/boydaihungst/miotranslator-better-reader-script/main/script.js
 // @grant        none
 // ==/UserScript==
 
