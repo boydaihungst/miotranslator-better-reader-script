@@ -3,12 +3,12 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  miotranslator website better reader mode
-// @author       You
+// @author       boydaihungst
 // @include      https://miotranslator.com/*
 // @include      https://tsukiteam.wordpress.com/*
 // @icon         https://www.google.com/s2/favicons?domain=wordpress.com
-// @downloadURL  https://raw.githubusercontent.com/boydaihungst/miotranslator-better-reader-script/main/script.js
-// @updateURL    https://raw.githubusercontent.com/boydaihungst/miotranslator-better-reader-script/main/script.js
+// @downloadURL  https://github.com/boydaihungst/miotranslator-better-reader-script/raw/main/miotranslator.user.js
+// @updateURL    https://raw.githubusercontent.com/boydaihungst/miotranslator-better-reader-script/main/miotranslator.user.js
 // @grant        none
 // ==/UserScript==
 

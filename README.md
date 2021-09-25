@@ -12,12 +12,9 @@ Bước 1:
 
 Cài đặt extension Tampermonkey cho trình duyệt đang sử dụng dụng. Tham khảo ở trang chủ, có đầy đủ cho các trình duyệt <http://tampermonkey.net>
 
-- Link cài cho Chrome/ microsoft edge: <https://chrome.google.com/.../dhdgffkkebhmkfjojejmpbldmpo>...
-
-- Link cài cho Firefox:
-  <https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/>
+- Link cài cho trình duyệt: <https://www.tampermonkey.net/?ext=dhdg>
 
 Bước 2:
 
-Ấn vào link dưới để cài đặt script (Xóa dấu cách ở bit. ly):
-<https://raw.githubusercontent.com/boydaihungst/miotranslator-better-reader-script/main/script.js>
+Ấn vào link dưới để cài đặt script:
+<https://github.com/boydaihungst/miotranslator-better-reader-script/raw/main/miotranslator.user.js>
