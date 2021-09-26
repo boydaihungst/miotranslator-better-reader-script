@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -32,7 +32,7 @@
     link.href =
       'https://fonts.googleapis.com/css2?family=' +
       param.family +
-      '&display=swap';
+      ':ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap';
     contentArea.style.fontFamily = FONT_TO_LOAD + ', sans-serif';
     contentArea.style.fontSize = '20px';
   };
@@ -44,13 +44,14 @@
     cursorVisible = true;
   const isReadPage = /(^\/\d+\/\d+\/\d+\/\w+).+/g.test(location.pathname);
   const LAST_KNOWN_READ_PAGE_KEY = 'lastKnownReadPage_' + location.host;
+  const lastReadPage = localStorage.getItem(LAST_KNOWN_READ_PAGE_KEY);
   const waitActionBarShownInterval = setInterval(() => {
     const actionBar = document.querySelector('#actionbar>ul');
     if (actionBar) {
       // hide marking bar
       document.querySelector('#marketingbar').style.display = 'none';
       clearInterval(waitActionBarShownInterval);
-      if (localStorage.getItem(LAST_KNOWN_READ_PAGE_KEY)) {
+      if (lastReadPage) {
         const resumePageLi = document.createElement('li');
         const resumeLastPageLink = document.createElement('a');
         const resumeLastPageLinkSpan = document.createElement('span');
@@ -58,9 +59,7 @@
         resumePageLi.classList.add('actnbr-hidden');
         resumeLastPageLinkSpan.innerHTML = 'Tiếp tục chương mới đọc';
         resumeLastPageLink.appendChild(resumeLastPageLinkSpan);
-        resumeLastPageLink.href = localStorage.getItem(
-          LAST_KNOWN_READ_PAGE_KEY,
-        );
+        resumeLastPageLink.href = lastReadPage;
         resumeLastPageLink.classList.add('actnbr-action');
         resumeLastPageLink.style.padding = '0';
         resumePageLi.appendChild(resumeLastPageLink);
