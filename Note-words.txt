@@ -1,0 +1,9 @@
+familia: hầu cận
+ruling: cai trị
+pact: khế ước
+equals: ngang hàng
+Property: đặc tính
+area: không gian
+field: lãnh vực
+effect: hiệu ứng
+comprehension: "lĩnh hội"
