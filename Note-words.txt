@@ -7,3 +7,4 @@ area: không gian
 field: lãnh vực
 effect: hiệu ứng
 comprehension: "lĩnh hội"
+healing: hồi phục
