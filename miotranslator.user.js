@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -20,16 +20,29 @@
     ? '.content-area'
     : '.entry-content';
     const contentArea = document.querySelector(contentAreaSelector);
-   // better view in mobile device
-    const hentryDom = document.querySelector('.hentry');
-    if (!!hentryDom && document.documentElement.clientWidth <= 600) {
-        hentryDom.style.paddingRight = '0px';
-        hentryDom.style.paddingLeft = '0px';
+    // better view in mobile device
+    if(document.documentElement.clientWidth <= 600) {
+        const hentryDom = document.querySelector('.hentry');
+        if (!!hentryDom) {
+            hentryDom.style.paddingRight = '0px';
+            hentryDom.style.paddingLeft = '0px';
+        }
     }
-   //
+    //
     contentArea.style.maxWidth = 'unset';
     contentArea.style.paddingLeft = '0px';
     contentArea.style.paddingRight = '0px';
+    if (location.host === 'miotranslator.com' && !!document.querySelector('html[data-darkreader-scheme]')) {
+        const body = document.querySelector('body');
+        body.style.backgroundColor = 'unset';
+        body.style.color = '#444';
+        const siteNavs = document.querySelectorAll('#menu-tsuki-ga-michibiku-isekai-douchuu > li > a')
+        if (siteNavs && siteNavs.length > 0) {
+            siteNavs.forEach(navItem => {
+                navItem.style.color = '#444';
+            });
+        }
+    }
     const FONT_TO_LOAD = 'Nunito';
     var fontLoader = function (param) {
         var headID = document.getElementsByTagName('head')[0];
@@ -103,8 +116,11 @@
         contentEntries.forEach((node, index) => {
             node.id = 'line-' + index;
             node.style.maxWidth = '100%';
-            node.style.marginLeft = '5%';
-            node.style.marginRight = '5%';
+            if (location.host !== 'miotranslator.com' || document.documentElement.clientWidth >= 600) {
+                node.style.marginLeft = '5%';
+                node.style.marginRight = '5%';
+            }
+            node.style.textAlign = 'justify';
         });
 
         // Bookmark last read position
