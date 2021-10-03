@@ -33,15 +33,20 @@
     contentArea.style.paddingLeft = '0px';
     contentArea.style.paddingRight = '0px';
     if (location.host === 'miotranslator.com' && !!document.querySelector('html[data-darkreader-scheme]')) {
-        const body = document.querySelector('body');
-        body.style.backgroundColor = 'unset';
-        body.style.color = '#444';
-        const siteNavs = document.querySelectorAll('#menu-tsuki-ga-michibiku-isekai-douchuu > li > a')
-        if (siteNavs && siteNavs.length > 0) {
-            siteNavs.forEach(navItem => {
-                navItem.style.color = '#444';
-            });
-        }
+        setTimeout(() => {
+            const darkReaderDom = document.querySelector('html[data-darkreader-scheme]');
+            if(darkReaderDom) {
+                const body = document.querySelector('body');
+                body.style.backgroundColor = 'unset';
+                body.style.color = '#444';
+                const siteNavs = document.querySelectorAll('#menu-tsuki-ga-michibiku-isekai-douchuu > li > a')
+                if (siteNavs && siteNavs.length > 0) {
+                    siteNavs.forEach(navItem => {
+                        navItem.style.color = '#444';
+                    });
+                }
+            }
+        }, 200)
     }
     const FONT_TO_LOAD = 'Nunito';
     var fontLoader = function (param) {
