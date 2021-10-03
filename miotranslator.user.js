@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      0.8
+// @version      0.9
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -126,6 +126,7 @@
                 node.style.marginRight = '5%';
             }
             node.style.textAlign = 'justify';
+            node.style.fontWeight = '300';
         });
 
         // Bookmark last read position
