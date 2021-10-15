@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      0.9
+// @version      1.0
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -34,6 +34,18 @@
     contentArea.style.paddingRight = '0px';
     if (location.host === 'miotranslator.com' && !!document.querySelector('html[data-darkreader-scheme]')) {
         setTimeout(() => {
+            const contentWrapperDom = document.querySelector('#content > .content-wrapper');
+            const contentPrimaryDom = document.querySelector('#primary');
+            if(contentWrapperDom) {
+                contentWrapperDom.style.width = "auto";
+                contentWrapperDom.style.display = "flex";
+                contentWrapperDom.style.flexDirection = "column";
+                contentWrapperDom.style.margin = "0";
+            }
+            if(contentPrimaryDom){
+                contentPrimaryDom.style.width = "auto";
+                contentPrimaryDom.style.margin = "0";
+            }
             const darkReaderDom = document.querySelector('html[data-darkreader-scheme]');
             if(darkReaderDom) {
                 const body = document.querySelector('body');
