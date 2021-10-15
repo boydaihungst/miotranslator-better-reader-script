@@ -133,6 +133,7 @@
         contentEntries.forEach((node, index) => {
             node.id = 'line-' + index;
             node.style.maxWidth = '100%';
+            node.style.lineHeight = 'normal';
             if (location.host !== 'miotranslator.com' || document.documentElement.clientWidth >= 600) {
                 node.style.marginLeft = '5%';
                 node.style.marginRight = '5%';
