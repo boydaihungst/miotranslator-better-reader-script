@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         https://miotranslator.com better reader mode
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  miotranslator website better reader mode
 // @author       boydaihungst
 // @include      https://miotranslator.com/*
@@ -32,33 +32,35 @@
     contentArea.style.maxWidth = 'unset';
     contentArea.style.paddingLeft = '0px';
     contentArea.style.paddingRight = '0px';
-    if (location.host === 'miotranslator.com' && !!document.querySelector('html[data-darkreader-scheme]')) {
-        setTimeout(() => {
-            const contentWrapperDom = document.querySelector('#content > .content-wrapper');
-            const contentPrimaryDom = document.querySelector('#primary');
-            if(contentWrapperDom) {
-                contentWrapperDom.style.width = "auto";
-                contentWrapperDom.style.display = "flex";
-                contentWrapperDom.style.flexDirection = "column";
-                contentWrapperDom.style.margin = "0";
-            }
-            if(contentPrimaryDom){
-                contentPrimaryDom.style.width = "auto";
-                contentPrimaryDom.style.margin = "0";
-            }
-            const darkReaderDom = document.querySelector('html[data-darkreader-scheme]');
-            if(darkReaderDom) {
-                const body = document.querySelector('body');
-                body.style.backgroundColor = 'unset';
-                body.style.color = '#444';
-                const siteNavs = document.querySelectorAll('#menu-tsuki-ga-michibiku-isekai-douchuu > li > a')
-                if (siteNavs && siteNavs.length > 0) {
-                    siteNavs.forEach(navItem => {
-                        navItem.style.color = '#444';
-                    });
+    if (location.host === 'miotranslator.com') {
+        const contentWrapperDom = document.querySelector('#content > .content-wrapper');
+        const contentPrimaryDom = document.querySelector('#primary');
+        if(contentWrapperDom) {
+            contentWrapperDom.style.width = "auto";
+            contentWrapperDom.style.display = "flex";
+            contentWrapperDom.style.flexDirection = "column";
+            contentWrapperDom.style.margin = "0";
+        }
+        if(contentPrimaryDom){
+            contentPrimaryDom.style.width = "auto";
+            contentPrimaryDom.style.margin = "0";
+        }
+        if(!!document.querySelector('html[data-darkreader-scheme]')){
+            setTimeout(() => {
+                const darkReaderDom = document.querySelector('html[data-darkreader-scheme]');
+                if(darkReaderDom) {
+                    const body = document.querySelector('body');
+                    body.style.backgroundColor = 'unset';
+                    body.style.color = '#444';
+                    const siteNavs = document.querySelectorAll('#menu-tsuki-ga-michibiku-isekai-douchuu > li > a')
+                    if (siteNavs && siteNavs.length > 0) {
+                        siteNavs.forEach(navItem => {
+                            navItem.style.color = '#444';
+                        });
+                    }
                 }
-            }
-        }, 200)
+            }, 200)
+        }
     }
     const FONT_TO_LOAD = 'Nunito';
     var fontLoader = function (param) {
